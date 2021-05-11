@@ -36,6 +36,7 @@ USER = "User Name"
 PASSWORD = "*****"
 DATABASE = "Database Name"
 DIALECT = "postgres"
+HOST =  "******"
 
 ```
 Next launch the migrations. <b>This is necessary for the correct database tables.</b>
