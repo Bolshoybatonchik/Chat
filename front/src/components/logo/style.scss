@@ -1,0 +1,77 @@
+$fontSize: 60px;
+
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+  color: #fff;
+  position: relative;
+}
+
+#ui {
+  .text {
+
+    position: absolute;
+    font-size: $fontSize;
+    color: #fff;
+    line-height: $fontSize;
+    font-family: 'Anton', sans-serif;
+    //transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
+    // filter: blur(2px) contrast(5);
+    letter-spacing: 1rem;
+
+    @for $i from 0 through 100 {
+      $key: $i + 1;
+      &:nth-child(#{$key}) {
+        $row: floor($i / 20);
+        color: rgba(random(30), random(100), random(155) + 100, 1);
+        animation: clip#{$i} random(10000) + 10000ms ease-in-out infinite alternate;
+        filter: blur(#{random(25) - 10}px);
+        @keyframes clip#{$i} {
+          0% {
+            clip-path: circle(random(150) + 30px at random(160) - 30% random(160) - 30%);
+          }
+          25% {
+            clip-path: circle(random(150) + 30px at random(160) - 30% random(160) - 30%);
+          }
+          50% {
+            clip-path: circle(random(150) + 30px at random(160) - 30% random(160) - 30%);
+          }
+          75% {
+            clip-path: circle(random(150) + 30px at random(160) - 30% random(160) - 30%);
+          }
+          100% {
+            clip-path: circle(random(150) + 30px at random(160) - 30% random(160) - 30%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  #ui .text {
+    top: 20px;
+    font-size: 50px;
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #ui .text {
+    width: 100%;
+    font-size: 40px;
+    letter-spacing: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #ui .text {
+    font-size: 30px;
+  }
+}
+
